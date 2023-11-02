@@ -1,0 +1,69 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Hospital{% endblock title %}
+
+{% block content %}
+    <!-- hospital menu. -->
+    <div class="row gx-4 justify-content-center" style="margin-bottom: 40px">
+        <div class="col-lg-8">
+            <h2 class="text-lg-center">Menu Hospital</h2>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'hospital:crear_paciente' %}">Ir a crear paciente</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'hospital:crear_medico' %}">Ir a crear medico</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'hospital:crear_turno' %}">Ir a crear turno</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'hospital:crear_receta' %}">Ir a crear Receta</a>
+                </li>
+            </ul>
+        </div>    
+    </div>
+  
+<!-- mostrar base de datos. -->
+    <div class="row gx-4 justify-content-center">
+        <div class="col-lg-8">
+            <h2 class="text-lg-center">Pacientes</h2>
+
+            <ul class="list-group">
+                {% for paciente in pacientes %}
+                    <li class="list-group-item"> Paciente: {{ paciente | upper }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="text-lg-center">Medicos</h2>
+            <ul class="list-group">
+                {% for medico in medicos %}
+                    <li class="list-group-item"> Medico: {{ medico | upper }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="text-lg-center">Turnos</h2>
+
+            <ul class="list-group">
+                {% for turno in turnos %}
+                    <li class="list-group-item"> Turno: {{ turno | upper }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-lg-8">
+            <h2 class="text-lg-center">Recetas</h2>
+
+            <ul class="list-group">
+                {% for receta in recetas %}
+                    <li class="list-group-item"> Receta: {{ receta | upper }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
